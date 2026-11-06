@@ -1,6 +1,6 @@
 ﻿<p align="center"><img src="docs/images/icon.svg" width="112" height="112" alt="Time Sync icon"></p>
 
-# 校时 / Time Sync
+# Time Sync / 校时
 
 A network time synchronization app for Windows Phone.
 
@@ -104,15 +104,15 @@ The app performs DNS/NTP communication with selected or automatically attempted 
 
 ## Source and building
 
-| Path                                             | Purpose                                             |
-| ------------------------------------------------ | --------------------------------------------------- |
-| `TimeSync.csproj`                                | Windows Phone Silverlight project                   |
-| `Pages.cs`, `ServerPage.cs`                      | Pages, settings, and server list                    |
-| `Ntp.cs`, `Servers.cs`                           | NTP packets, requests, status, and ordered fallback |
-| `ClockWriter.cs`                                 | Clock writes and read-back verification             |
-| `Native/ClockNative.c`, `Native/ClockNative.idl` | Native WinRT bridge and interface                   |
-| `Loc.cs`, `Localization/Strings.tsv`             | Language resolution and translations                |
-| `Tests/`                                         | Server and localization checks                      |
+| Path | Purpose |
+| --- | --- |
+| `TimeSync.csproj` | Windows Phone Silverlight project |
+| `Pages.cs`, `ServerPage.cs` | Pages, settings, and server list |
+| `Ntp.cs`, `Servers.cs` | NTP packets, requests, status, and ordered fallback |
+| `ClockWriter.cs` | Clock writes and read-back verification |
+| `Native/ClockNative.c`, `Native/ClockNative.idl` | Native WinRT bridge and interface |
+| `Loc.cs`, `Localization/Strings.tsv` | Language resolution and translations |
+| `Tests/` | Server and localization checks |
 
 Building requires the Windows Phone 8.0 SDK and relevant .NET build tools. The current build also uses WP8.1 SDK XAML compilation tasks. Rebuilding the native code requires the toolchain referenced by `Native/Build-Native.ps1`.
 
@@ -127,3 +127,5 @@ Version 0.6.1 passed build, page-resource, server-selection, and localization ch
 ## License
 
 The project source code is licensed under the [Mozilla Public License 2.0 (MPL-2.0)](LICENSE). See the license for the full terms.
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
+ <DefaultLanguage xmlns="" code="en-US"/><Languages xmlns=""><Language code="en-GB"/><Language code="zh-CN"/><Language code="zh-TW"/><Language code="zh-HK"/><Language code="es-ES"/><Language code="es-MX"/><Language code="fr-FR"/><Language code="fr-CA"/><Language code="pt-BR"/><Language code="pt-PT"/><Language code="ru-RU"/><Language code="de-DE"/><Language code="ja-JP"/><Language code="id-ID"/><Language code="hi-IN"/><Language code="ar-SA"/><Language code="ko-KR"/><Language code="vi-VN"/><Language code="tr-TR"/></Languages><App xmlns="" ProductID="{409F2A8E-7163-4437-8FF1-B9C27B94D759}" Title="@AppResLib.dll,-100" RuntimeType="Silverlight" Version="0.6.1.0" Genre="apps.normal" Author="TimeSync" Description="NTP system clock test" Publisher="TimeSync" PublisherID="{5E831E8C-437E-4F84-B87C-3C0934C8CC00}">
+ <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath><Capabilities><Capability Name="ID_CAP_NETWORKING"/></Capabilities>
+ <Tasks><DefaultTask Name="_default" NavigationPage="MainPage.xaml"/></Tasks>
+ <Tokens><PrimaryToken TokenID="TimeSyncToken" TaskName="_default"><TemplateFlip><SmallImageURI IsRelative="true" IsResource="false">Assets\TileSmall.png</SmallImageURI><Count>0</Count><BackgroundImageURI IsRelative="true" IsResource="false">Assets\TileMedium.png</BackgroundImageURI><Title>@AppResLib.dll,-200</Title><BackContent/><BackBackgroundImageURI/><BackTitle/><DeviceLockImageURI/><HasLarge>false</HasLarge></TemplateFlip></PrimaryToken></Tokens>
+ <ActivatableClasses><InProcessServer><Path>ClockNative.dll</Path><ActivatableClass ActivatableClassId="ClockNative.Clock" ThreadingModel="both"/></InProcessServer></ActivatableClasses>
+ <ScreenResolutions><ScreenResolution Name="ID_RESOLUTION_WVGA"/><ScreenResolution Name="ID_RESOLUTION_WXGA"/><ScreenResolution Name="ID_RESOLUTION_HD720P"/></ScreenResolutions>
+ </App>
+</Deployment>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+LIBRARY KERNELBASE.dll
+EXPORTS
+ GetModuleHandleW
+ GetProcAddress
+ GetLastError

@@ -1,0 +1,19 @@
+﻿// SPDX-License-Identifier: MPL-2.0
+import "inspectable.idl";
+namespace ClockNative
+{
+    runtimeclass Clock;
+    [uuid(07CFB9B4-0FD6-4D04-9FB9-746FA181FE5B), version(1.0), exclusiveto(Clock)]
+    interface IClock : IInspectable
+    {
+        HRESULT SetUtc([in] INT32 year, [in] INT32 month, [in] INT32 day,
+            [in] INT32 hour, [in] INT32 minute, [in] INT32 second,
+            [in] INT32 milliseconds, [out, retval] INT32 *result);
+        HRESULT PermissionState([out, retval] INT32 *result);
+    }
+    [version(1.0), activatable(1.0)]
+    runtimeclass Clock
+    {
+        [default] interface IClock;
+    }
+}

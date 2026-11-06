@@ -1,0 +1,33 @@
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <PropertyGroup>
+  <Configuration Condition="'$(Configuration)'==''">Release</Configuration><Platform Condition="'$(Platform)'==''">AnyCPU</Platform>
+  <ProjectGuid>{409F2A8E-7163-4437-8FF1-B9C27B94D759}</ProjectGuid><OutputType>Library</OutputType><PlatformTarget>AnyCPU</PlatformTarget><RootNamespace>TimeSync</RootNamespace><AssemblyName>TimeSync</AssemblyName>
+  <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier><TargetFrameworkVersion>v8.0</TargetFrameworkVersion><SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion><SilverlightApplication>true</SilverlightApplication>
+  <SupportedCultures>en-US;en-GB;zh-CN;zh-TW;zh-HK;es-ES;es-MX;fr-FR;fr-CA;pt-BR;pt-PT;ru-RU;de-DE;ja-JP;id-ID;hi-IN;ar-SA;ko-KR;vi-VN;tr-TR</SupportedCultures><XapOutputs>true</XapOutputs><GenerateSilverlightManifest>true</GenerateSilverlightManifest><XapFilename>TimeSync.xap</XapFilename><OutputPath>bin\$(Configuration)\</OutputPath><DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants><NoStdLib>true</NoStdLib><NoConfig>true</NoConfig><Optimize>true</Optimize>
+ </PropertyGroup>
+ <ItemGroup><Reference Include="mscorlib"/><Reference Include="System"/><Reference Include="System.Core"/><Reference Include="System.Net"/><Reference Include="System.Windows"/><Reference Include="Microsoft.Phone"/><Reference Include="Microsoft.Phone.Interop"/></ItemGroup>
+ <ItemGroup><ApplicationDefinition Include="App.xaml"/><Compile Include="App.cs"/><Compile Include="Ntp.cs"/><Compile Include="Pages.cs"/><Content Include="Properties\WMAppManifest.xml"/><Content Include="Assets\*.png"/></ItemGroup>
+ <ItemGroup><Compile Include="ClockWriter.cs"/><Content Include="AppResLib.dll"/><Content Include="AppResLib.dll.*.mui"/><Page Include="MainPage.xaml"/><Page Include="SettingsPage.xaml"/><Page Include="ChoicePage.xaml"/></ItemGroup>
+ <ItemGroup><Reference Include="ClockNative.winmd"><HintPath>Native\ClockNative.winmd</HintPath><IsWinMDFile>true</IsWinMDFile><Private>false</Private></Reference><Reference Include="System.Runtime.WindowsRuntime"/></ItemGroup>
+ <UsingTask TaskName="Microsoft.Silverlight.Build.Tasks.CompileXaml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\WindowsPhone\v8.1\Microsoft.Silverlight.WindowsPhone.Build.Tasks.dll" Condition="'$(Use81XamlCompiler)'=='true'"/>
+ <UsingTask TaskName="Microsoft.Silverlight.Build.Tasks.ValidateXaml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\WindowsPhone\v8.1\Microsoft.Silverlight.WindowsPhone.Build.Tasks.dll" Condition="'$(Use81XamlCompiler)'=='true'"/>
+ <PropertyGroup><TargetPlatformVersion>8.0</TargetPlatformVersion><TargetPlatformIdentifier>WindowsPhone</TargetPlatformIdentifier><SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate><SilverlightAppEntry>TimeSync.App</SilverlightAppEntry><SilverlightRuntimeVersion>4.0.50826.0</SilverlightRuntimeVersion></PropertyGroup>
+ <ItemGroup><Compile Include="Loc.cs"/><Resource Include="Localization\Strings.tsv"/></ItemGroup>
+ <ItemGroup><Compile Include="Servers.cs"/><Compile Include="ServerPage.cs"/><Page Include="ServerPage.xaml"/></ItemGroup>
+ <ItemGroup><Content Include="Native\ClockNative.dll"><Link>ClockNative.dll</Link><TargetPath>ClockNative.dll</TargetPath></Content><Content Include="Native\ClockNative.winmd"><Link>ClockNative.winmd</Link><TargetPath>ClockNative.winmd</TargetPath></Content></ItemGroup>
+ <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WindowsPhone\v8.0\Microsoft.WindowsPhone.CSharp.targets"/>
+ <!-- Explicit registration for this single WinRT class, replacing the incomplete local SDK's PEReader scanner. -->
+ <Target Name="WMAppManifestWinMDRegistration">
+  <Copy SourceFiles="Properties\WMAppManifest.xml" DestinationFiles="$(OutDir)WMAppManifest.xml"/>
+  <PropertyGroup><WMAppManifestOutput>$(OutDir)WMAppManifest.xml</WMAppManifestOutput></PropertyGroup>
+ </Target>
+ <Target Name="BuildLocalizedNames" BeforeTargets="BeforeBuild"><Exec Command="powershell.exe -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\Localization\Build-Names.ps1&quot;"/></Target>
+ <!-- This app has no background agents; avoid the incomplete local SDK's unused PEReader dependency. -->
+ <Target Name="WMAppManifestBGAgentRegistration" Condition="'$(Use81XamlCompiler)'!='true'" DependsOnTargets="$(WMAppManifestBGAgentRegistrationDependsOn)">
+  <GenerateBGAgentManifest ProjectReferences="@(ReferencePath)" WMAppManifestFullPath="$(WMAppManifestOutput)" />
+ </Target>
+</Project>
+
+
+
+
