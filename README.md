@@ -1,6 +1,6 @@
 ﻿<p align="center"><img src="docs/images/icon.svg" width="112" height="112" alt="Time Sync icon"></p>
 
-# Time Sync / 校时
+# 校时 / Time Sync
 
 A network time synchronization app for Windows Phone.
 
@@ -23,6 +23,14 @@ The main-screen example shows a successful time query without a system clock wri
 Time Sync obtains network time over NTP and displays the phone's current time, server time, offset before correction, and round-trip delay. On a device with suitable system access, it can attempt to set the system clock and verify the result by reading it back.
 
 The interface follows Windows Phone styling, keeps the system tray visible, and supports transparent tiles. Its name is “校时” in Simplified Chinese, “校時” in Traditional Chinese, and “Time Sync” in other languages.
+
+## Recommended use
+
+**Prefer the built-in automatic time setting when it works correctly.** On Windows Phone 8.1 Update (GDR1) and later systems, first check the automatic options under Settings → date + time. Their availability, time source, and operation can vary by device, firmware, region, and network operator; the OS version alone is not a guarantee.
+
+Time Sync is primarily intended for devices where built-in automatic time setting is unavailable or not working, or where an independent NTP time reference is useful. Viewing server time does not require system clock write access; changing the system clock still depends on effective device permissions. Bootloader unlocking or Root is not needed merely to view the time reference.
+
+Microsoft Mobile's [Windows Phone 8.1 Update User Guide](https://www.bhphotovideo.com/lit_files/294642.pdf) also notes regional and network-provider limitations on automatic time updates.
 
 ## Compatibility and permissions
 
@@ -104,15 +112,15 @@ The app performs DNS/NTP communication with selected or automatically attempted 
 
 ## Source and building
 
-| Path | Purpose |
-| --- | --- |
-| `TimeSync.csproj` | Windows Phone Silverlight project |
-| `Pages.cs`, `ServerPage.cs` | Pages, settings, and server list |
-| `Ntp.cs`, `Servers.cs` | NTP packets, requests, status, and ordered fallback |
-| `ClockWriter.cs` | Clock writes and read-back verification |
-| `Native/ClockNative.c`, `Native/ClockNative.idl` | Native WinRT bridge and interface |
-| `Loc.cs`, `Localization/Strings.tsv` | Language resolution and translations |
-| `Tests/` | Server and localization checks |
+| Path                                             | Purpose                                             |
+| ------------------------------------------------ | --------------------------------------------------- |
+| `TimeSync.csproj`                                | Windows Phone Silverlight project                   |
+| `Pages.cs`, `ServerPage.cs`                      | Pages, settings, and server list                    |
+| `Ntp.cs`, `Servers.cs`                           | NTP packets, requests, status, and ordered fallback |
+| `ClockWriter.cs`                                 | Clock writes and read-back verification             |
+| `Native/ClockNative.c`, `Native/ClockNative.idl` | Native WinRT bridge and interface                   |
+| `Loc.cs`, `Localization/Strings.tsv`             | Language resolution and translations                |
+| `Tests/`                                         | Server and localization checks                      |
 
 Building requires the Windows Phone 8.0 SDK and relevant .NET build tools. The current build also uses WP8.1 SDK XAML compilation tasks. Rebuilding the native code requires the toolchain referenced by `Native/Build-Native.ps1`.
 
@@ -127,5 +135,3 @@ Version 0.6.1 passed build, page-resource, server-selection, and localization ch
 ## License
 
 The project source code is licensed under the [Mozilla Public License 2.0 (MPL-2.0)](LICENSE). See the license for the full terms.
-
-
