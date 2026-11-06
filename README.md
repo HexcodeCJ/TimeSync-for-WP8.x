@@ -8,6 +8,12 @@ A network time synchronization app for Windows Phone.
 
 English | [简体中文](README.zh-CN.md)
 
+## Development and attribution
+
+**Time Sync is developed primarily by OpenAI GPT models through ChatGPT / Codex.** GPT has generated and iterated on the application code, native bridge, localization resources, tests, and documentation based on the project owner's requirements and device feedback.
+
+**HexcodeCJ** is the project owner and maintainer, responsible for requirements, design decisions, device testing, repository management, and releases. Development proceeds through this collaboration; future work and compatibility depend on actual implementation and verification.
+
 ## Screenshots
 
 Captured on a Lumia 920T running Windows Phone 8.1, with the English interface.
