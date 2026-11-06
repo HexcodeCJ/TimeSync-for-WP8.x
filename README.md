@@ -124,4 +124,6 @@ The output is `bin/Release/TimeSync.xap`. Keep managed code **AnyCPU/MSIL** and 
 
 Version 0.6.1 passed build, page-resource, server-selection, and localization checks, along with MDIL deployment optimization using both SDK 8.0 and 8.1. Automated and mocked tests do not replace device compatibility or effective-permission testing.
 
-No explicit open-source license is currently included. Source availability alone does not grant unrestricted redistribution or commercial-use rights.
+## License
+
+The project source code is licensed under the [Mozilla Public License 2.0 (MPL-2.0)](LICENSE). See the license for the full terms.

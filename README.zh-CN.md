@@ -130,6 +130,8 @@ MSBuild.exe TimeSync.csproj /t:Rebuild /p:Configuration=Release /p:Use81XamlComp
 
 0.6.1 已通过构建、页面资源检查、服务器选择及本地化测试，以及 SDK 8.0／8.1 的 MDIL 部署优化检查。自动化与模拟测试不替代真机兼容性和实际权限验证。
 
-当前项目未附明确的开源许可证；提供源码不自动代表授予任意再分发或商业使用许可。
+## 许可证
+
+本项目源码采用 [Mozilla Public License 2.0（MPL-2.0）](LICENSE) 许可，完整条款请参阅许可证文件。
 
 
